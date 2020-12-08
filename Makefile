@@ -11,7 +11,8 @@ OWNER?=lukauskas
 ifeq ($(ARCH),ppc64le)
 ALL_STACKS:=
 else
-ALL_STACKS:=compbio-notebook
+ALL_STACKS:=noconda-notebook \
+            compbio-notebook
 endif
 
 ALL_IMAGES:=$(ALL_STACKS)
