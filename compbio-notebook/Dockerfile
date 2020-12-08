@@ -116,6 +116,7 @@ RUN install2.r --error \
 
 USER $NB_UID
 
+# Python packages & jupyter extensions
 RUN pip install --no-cache-dir \
     'adjustText==0.7.3' \
     'arch==4.15' \
@@ -152,10 +153,8 @@ RUN pip install --no-cache-dir \
     'tqdm==4.54.1' \
     'vincent==0.4.4' \
     'widgetsnbextension==3.5.1'\
-    'xlrd==1.2.0'
-
-# Jupyter extensions
-RUN jupyter nbextension enable --py widgetsnbextension && \
+    'xlrd==1.2.0' \
+ && jupyter nbextension enable --py widgetsnbextension && \
     # Also activate ipywidgets extension for JupyterLab
     # Check this URL for most recent compatibilities
     # https://github.com/jupyter-widgets/ipywidgets/tree/master/packages/jupyterlab-manager
@@ -167,6 +166,7 @@ RUN jupyter nbextension enable --py widgetsnbextension && \
     npm cache clean --force && \
     rm -rf "/home/${NB_USER}/.cache/yarn" && \
     rm -rf "/home/${NB_USER}/.node-gyp" && \
+    rm -rf "/home/${NB_USER}/.cache/pip" && \
     fix-permissions "/home/${NB_USER}"
 
 # Import matplotlib the first time to build the font cache.
