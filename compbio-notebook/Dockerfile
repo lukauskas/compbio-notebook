@@ -125,44 +125,44 @@ USER $NB_UID
 # Python packages & jupyter extensions
 RUN pip install --no-cache-dir \
     'adjustText==0.7.3' \
-    'arch==4.15' \
-    'bokeh==2.2.3' \
+    'arch==4.19' \
+    'bokeh==2.3.0' \
     'bottleneck==1.3.2' \
     'cloudpickle==1.6.0' \
-    'cython==0.29.21' \
-    'dask==2.30.0' \
+    'cython==0.29.22' \
+    'dask==2021.4.0' \
     'dill==0.3.3' \
-    'h5py==3.1.0' \
-    'ipywidgets==7.5.1' \
-    'ipympl==0.5.8'\
-    'matplotlib==3.3.3' \
+    'h5py==3.2.1' \
+    'ipywidgets==7.6.3' \
+    'ipympl==0.7.0'\
+    'matplotlib==3.4.1' \
     'matplotlib-venn==0.11.6' \
-    'networkx==2.5' \
-    'numba==0.52.0' \
-    'numexpr==2.7.1' \
-    'nteract-scrapbook==0.4.1' \
-    'pandas==1.1.5' \
-    'papermill==2.2.2' \
+    'networkx==2.5.1' \
+    'numba==0.53.1' \
+    'numexpr==2.7.3' \
+    'nteract-scrapbook==0.4.2' \
+    'pandas==1.2.3' \
+    'papermill==2.3.3' \
     'patsy==0.5.1' \
-    'pingouin==0.3.8' \
-    'protobuf==3.14.0' \
-    'pyBigWig==0.3.17' \
-    'pybedtools==0.8.1' \
+    'pingouin==0.3.10' \
+    'protobuf==3.15.7' \
+    'pyBigWig==0.3.18' \
+    'pybedtools==0.8.2' \
     'pysam==0.16.0.1' \
     'sinfo==0.3.1' \
     'tables==3.6.1' \
-    'scikit-image==0.17.2' \
-    'scikit-learn==0.23.2' \
-    'scipy==1.5.4' \
-    'seaborn==0.11.0' \
-    'sqlalchemy==1.3.20' \
-    'statsmodels==0.12.1' \
+    'scikit-image==0.18.1' \
+    'scikit-learn==0.24.1' \
+    'scipy==1.6.2' \
+    'seaborn==0.11.1' \
+    'sqlalchemy==1.4.5' \
+    'statsmodels==0.12.2' \
     'statannot==0.2.3' \
-    'sympy==1.7' \
-    'tqdm==4.54.1' \
+    'sympy==1.7.1' \
+    'tqdm==4.60.0' \
     'vincent==0.4.4' \
     'widgetsnbextension==3.5.1'\
-    'xlrd==1.2.0' \
+    'xlrd==2.0.1' \
  && jupyter nbextension enable --py widgetsnbextension && \
     # Also activate ipywidgets extension for JupyterLab
     # Check this URL for most recent compatibilities
