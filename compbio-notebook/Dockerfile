@@ -36,6 +36,7 @@ RUN apt-get update \
 
 # Other apt-get dependancies
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
+  bedtools \
   cm-super \
   libcurl4-openssl-dev \
   dvipng \
@@ -62,8 +63,10 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libssl-dev \
   libssh2-1-dev \
   libxt-dev \
+  samtools \
   unixodbc \
   unixodbc-dev \
+  zlib1g-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
@@ -84,6 +87,7 @@ RUN install2.r --error \
     htmltools \
     htmlwidgets \
     IRkernel \
+    pheatmap \
     randomForest \
     rmarkdown \
     RCurl \
@@ -101,15 +105,17 @@ RUN install2.r --error \
     && R -e "BiocManager::install('Biobase')" \
     && R -e "BiocManager::install('BiocStyle')" \
     && R -e "BiocManager::install('BiocVersion')" \
-    && R -e "BiocManager::install('DOSE')" \
-    && R -e "BiocManager::install('fgsea')" \
-    && R -e "BiocManager::install('limma')" \
-    && R -e "BiocManager::install('edgeR')" \
-    && R -e "BiocManager::install('DESeq2')" \
-    && R -e "BiocManager::install('tximport')" \
     && R -e "BiocManager::install('clusterProfiler')" \
+    && R -e "BiocManager::install('DESeq2')" \
+    && R -e "BiocManager::install('DOSE')" \
+    && R -e "BiocManager::install('edgeR')" \
+    && R -e "BiocManager::install('fgsea')" \
+    && R -e "BiocManager::install('GOSemSim')" \
+    && R -e "BiocManager::install('limma')" \
+    && R -e "BiocManager::install('tximport')" \
     && R -e "BiocManager::install('marray')" \
     && R -e "BiocManager::install('rtracklayer')" \
+    && R -e "BiocManager::install('Rsamtools')" \
     # Packages that depend on Bioconductor
     && install2.r --error --deps TRUE \
     hexbin
@@ -134,7 +140,9 @@ RUN pip install --no-cache-dir \
     'networkx==2.5' \
     'numba==0.52.0' \
     'numexpr==2.7.1' \
+    'nteract-scrapbook==0.4.1' \
     'pandas==1.1.5' \
+    'papermill==2.2.2' \
     'patsy==0.5.1' \
     'pingouin==0.3.8' \
     'protobuf==3.14.0' \
@@ -149,6 +157,7 @@ RUN pip install --no-cache-dir \
     'seaborn==0.11.0' \
     'sqlalchemy==1.3.20' \
     'statsmodels==0.12.1' \
+    'statannot==0.2.3' \
     'sympy==1.7' \
     'tqdm==4.54.1' \
     'vincent==0.4.4' \
